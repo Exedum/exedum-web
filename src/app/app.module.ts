@@ -7,6 +7,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { DraggableDirective } from './draggable.directive';
 import { SaleComponent } from './sale/sale.component';
 import { WindowsService } from './windows.service';
+import { ProtocolComponent } from './protocol/protocol.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { WindowsService } from './windows.service';
     WelcomeComponent,
     DraggableDirective,
     SaleComponent,
+    ProtocolComponent,
   ],
   imports: [
     BrowserModule,

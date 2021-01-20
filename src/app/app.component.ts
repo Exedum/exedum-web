@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, ComponentFactoryResolver, QueryList, ViewChildren, ViewContainerRef } from '@angular/core';
 import { MenuItem } from './menu.item';
+import { ProtocolComponent } from './protocol/protocol.component';
 import { RegisterComponent } from './register/register.component';
 import { SaleComponent } from './sale/sale.component';
 import { WelcomeComponent } from './welcome/welcome.component';
@@ -16,31 +17,31 @@ export class AppComponent implements AfterViewInit {
       icon: '📕',
       name: 'Welcome',
       goTo: WelcomeComponent,
+      isFullScreen: false,
+    },
+    {
+      icon: '🎚',
+      name: 'Protocol',
+      goTo: ProtocolComponent,
+      isFullScreen: false,
     },
     {
       icon: '📡',
       name: 'Sale',
       goTo: SaleComponent,
+      isFullScreen: false,
     },
     {
-      icon: '🔒',
-      name: 'Wallet',
+      icon: '🚀',
+      name: 'App',
       goTo: RegisterComponent,
-    },
-    {
-      icon: '🏦',
-      name: 'Staking',
-      goTo: RegisterComponent,
-    },
-    {
-      icon: '🗳',
-      name: 'Governance',
-      goTo: 'https://snapshot.page/#/exedum',
+      isFullScreen: true,
     },
     {
       icon: '🤖',
       name: 'Github',
       goTo: 'https://github.com/exedum',
+      isFullScreen: false,
     },
     /* {
       icon: '🦄',
@@ -57,7 +58,8 @@ export class AppComponent implements AfterViewInit {
     {
       component: WelcomeComponent,
       zIndex: this.lastZIndex,
-      title: '📕 Welcome'
+      title: '📕 Welcome',
+      isFullScreen: false,
     }
   ];
 
@@ -82,15 +84,16 @@ export class AppComponent implements AfterViewInit {
       window.open(item.goTo, '_blank');
       return;
     }
-    this.openComponent(item.goTo, item.icon + ' ' + item.name);
+    this.openComponent(item.goTo, item.icon + ' ' + item.name, item.isFullScreen);
     this.startMenuOpened = false;
   }
 
-  openComponent(component: any, title: string): void {
+  openComponent(component: any, title: string, isFullScreen: boolean): void {
     this.openedWindows = [...this.openedWindows, {
       component,
       zIndex: this.lastZIndex + 1,
-      title
+      title,
+      isFullScreen,
     }];
     this.lastZIndex += 1;
     this.lastWindowOpened = this.openedWindows.length - 1;

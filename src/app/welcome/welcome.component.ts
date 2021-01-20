@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProtocolComponent } from '../protocol/protocol.component';
 import { SaleComponent } from '../sale/sale.component';
 import { WindowsService } from '../windows.service';
 
@@ -21,6 +22,15 @@ export class WelcomeComponent implements OnInit {
       icon: '📡',
       name: 'Sale',
       goTo: SaleComponent,
+      isFullScreen: false,
+    });
+  }
+  openProtocol(): void {
+    this.windowsService.openMenuItem({
+      icon: '🎚',
+      name: 'Protocol',
+      goTo: ProtocolComponent,
+      isFullScreen: false,
     });
   }
 

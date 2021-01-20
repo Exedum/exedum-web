@@ -60,6 +60,11 @@
     position: absolute;
     top: 30px;
 }
+.full-window {
+    min-width: 100%;
+    max-width: 100% !important;
+    height: calc(100vh - 38px);
+}
 
 .btn-close {
     position: absolute;
