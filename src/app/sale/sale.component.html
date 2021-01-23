@@ -1,1 +1,38 @@
-<p>sale works!</p>
+<div class="container">
+
+    <div class="row align-items-center justify-content-center">
+        <h6>Buy EXED</h6>
+    </div>
+    <br/>
+    
+    <div class="row">
+
+
+        <div class="align-items-center justify-content-center">
+            <span *ngIf="!isMetaMaskInstalled" class="text-danger mb-0">Metamask is not installed!</span>
+            <div *ngIf="isMetaMaskInstalled && !account">
+                <button class="btn mr-2 mb-2 btn-primary" (click)="login()"><span class="btn-text">Connect with metamask</span></button>
+            </div>
+            <div *ngIf="isMetaMaskInstalled && account">
+                <p>Wallet: {{account}}</p>
+            </div>
+        </div>
+        <div style="width: 100%;">
+            <p><b>Sale Address: </b>{{sale}}</p>
+            <p><strong>Token Address: </strong>{{token}}</p>
+            <p>1 ETH = 3000 EXED</p>
+
+            <div class="form-group">
+                <label for="eth" class="mb-2">ETH</label>
+                <input id="eth" type="number" class="form-control" placeholder="0" required />
+            </div>
+            <div class="form-group">
+                <label for="exed" class="mb-2">EXED</label>
+                <input id="exed" type="number" class="form-control" placeholder="0" required />
+            </div>
+            <div class="row justify-content-center">
+                <button class="btn mr-2 mb-2 btn-success"><span class="btn-text">Buy</span></button>
+            </div>
+        </div>
+    </div>
+</div>

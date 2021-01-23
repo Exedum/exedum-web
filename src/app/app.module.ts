@@ -10,6 +10,7 @@ import { WindowsService } from './windows.service';
 import { ProtocolComponent } from './protocol/protocol.component';
 import { FrameComponent } from './frame/frame.component';
 import { ComingsoonComponent } from './comingsoon/comingsoon.component';
+import { EthereumService } from './ethereum.service';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ComingsoonComponent } from './comingsoon/comingsoon.component';
   ],
   providers: [
     WindowsService,
+    EthereumService,
   ],
   bootstrap: [AppComponent]
 })
