@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ComingsoonComponent } from '../comingsoon/comingsoon.component';
+import { FrameComponent } from '../frame/frame.component';
 import { ProtocolComponent } from '../protocol/protocol.component';
 import { SaleComponent } from '../sale/sale.component';
 import { WindowsService } from '../windows.service';
@@ -31,6 +33,15 @@ export class WelcomeComponent implements OnInit {
       name: 'Protocol',
       goTo: ProtocolComponent,
       isFullScreen: false,
+    });
+  }
+
+  openApp(): void {
+    this.windowsService.openMenuItem({
+      icon: '🚀',
+      name: 'App',
+      goTo: ComingsoonComponent,
+      isFullScreen: true,
     });
   }
 

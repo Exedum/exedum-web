@@ -1,4 +1,6 @@
 import { AfterViewInit, Component, ComponentFactoryResolver, QueryList, ViewChildren, ViewContainerRef } from '@angular/core';
+import { ComingsoonComponent } from './comingsoon/comingsoon.component';
+import { FrameComponent } from './frame/frame.component';
 import { MenuItem } from './menu.item';
 import { ProtocolComponent } from './protocol/protocol.component';
 import { RegisterComponent } from './register/register.component';
@@ -34,7 +36,7 @@ export class AppComponent implements AfterViewInit {
     {
       icon: '🚀',
       name: 'App',
-      goTo: RegisterComponent,
+      goTo: ComingsoonComponent,
       isFullScreen: true,
     },
     {

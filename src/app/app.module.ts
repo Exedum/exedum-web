@@ -8,6 +8,8 @@ import { DraggableDirective } from './draggable.directive';
 import { SaleComponent } from './sale/sale.component';
 import { WindowsService } from './windows.service';
 import { ProtocolComponent } from './protocol/protocol.component';
+import { FrameComponent } from './frame/frame.component';
+import { ComingsoonComponent } from './comingsoon/comingsoon.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { ProtocolComponent } from './protocol/protocol.component';
     DraggableDirective,
     SaleComponent,
     ProtocolComponent,
+    FrameComponent,
+    ComingsoonComponent,
   ],
   imports: [
     BrowserModule,
