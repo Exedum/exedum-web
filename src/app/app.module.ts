@@ -11,9 +11,11 @@ import { ProtocolComponent } from './protocol/protocol.component';
 import { FrameComponent } from './frame/frame.component';
 import { ComingsoonComponent } from './comingsoon/comingsoon.component';
 import { EthereumService } from './ethereum.service';
+import { RoadmapComponent } from './roadmap/roadmap.component';
+import { DistributionComponent } from './distribution/distribution.component';
 
 @NgModule({
-  declarations: [
+  declarations: [		
     AppComponent,
     RegisterComponent,
     WelcomeComponent,
@@ -22,7 +24,9 @@ import { EthereumService } from './ethereum.service';
     ProtocolComponent,
     FrameComponent,
     ComingsoonComponent,
-  ],
+      RoadmapComponent,
+      DistributionComponent
+   ],
   imports: [
     BrowserModule,
   ],

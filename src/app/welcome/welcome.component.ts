@@ -25,6 +25,7 @@ export class WelcomeComponent implements OnInit {
       name: 'Sale',
       goTo: SaleComponent,
       isFullScreen: false,
+      isMidScreen: false
     });
   }
   openProtocol(): void {
@@ -33,6 +34,7 @@ export class WelcomeComponent implements OnInit {
       name: 'Protocol',
       goTo: ProtocolComponent,
       isFullScreen: false,
+      isMidScreen: false
     });
   }
 
@@ -42,6 +44,7 @@ export class WelcomeComponent implements OnInit {
       name: 'App',
       goTo: ComingsoonComponent,
       isFullScreen: true,
+      isMidScreen: false
     });
   }
 

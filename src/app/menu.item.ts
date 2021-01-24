@@ -3,4 +3,5 @@ export interface MenuItem {
     name: string;
     goTo: any | string;
     isFullScreen: boolean;
+    isMidScreen: boolean;
 }

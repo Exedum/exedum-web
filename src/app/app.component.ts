@@ -1,9 +1,16 @@
-import { AfterViewInit, Component, ComponentFactoryResolver, QueryList, ViewChildren, ViewContainerRef } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ComponentFactoryResolver,
+  QueryList,
+  ViewChildren,
+  ViewContainerRef
+} from '@angular/core';
 import { ComingsoonComponent } from './comingsoon/comingsoon.component';
-import { FrameComponent } from './frame/frame.component';
+import { DistributionComponent } from './distribution/distribution.component';
 import { MenuItem } from './menu.item';
 import { ProtocolComponent } from './protocol/protocol.component';
-import { RegisterComponent } from './register/register.component';
+import { RoadmapComponent } from './roadmap/roadmap.component';
 import { SaleComponent } from './sale/sale.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { WindowsService } from './windows.service';
@@ -20,30 +27,49 @@ export class AppComponent implements AfterViewInit {
       name: 'Welcome',
       goTo: WelcomeComponent,
       isFullScreen: false,
+      isMidScreen: false,
     },
     {
       icon: '🎚',
       name: 'Protocol',
       goTo: ProtocolComponent,
       isFullScreen: false,
+      isMidScreen: false,
     },
     {
       icon: '📡',
       name: 'Sale',
       goTo: SaleComponent,
       isFullScreen: false,
+      isMidScreen: false,
     },
     {
       icon: '🚀',
       name: 'App',
       goTo: ComingsoonComponent,
       isFullScreen: true,
+      isMidScreen: false,
+    },
+    {
+      icon: '🍰',
+      name: 'Distribution',
+      goTo: DistributionComponent,
+      isFullScreen: false,
+      isMidScreen: false,
+    },
+    {
+      icon: '📆',
+      name: 'Roadmap',
+      goTo: RoadmapComponent,
+      isFullScreen: false,
+      isMidScreen: false,
     },
     {
       icon: '🤖',
       name: 'Github',
       goTo: 'https://github.com/exedum',
       isFullScreen: false,
+      isMidScreen: false,
     },
     /* {
       icon: '🦄',
@@ -62,23 +88,23 @@ export class AppComponent implements AfterViewInit {
       zIndex: this.lastZIndex,
       title: '📕 Welcome',
       isFullScreen: false,
-    }
+      isMidScreen: false,
+    },
   ];
 
-  @ViewChildren('dynamic', {read: ViewContainerRef})
+  @ViewChildren('dynamic', { read: ViewContainerRef })
   public windowTargets: QueryList<ViewContainerRef>;
 
   constructor(
     private readonly componentFactoryResolver: ComponentFactoryResolver,
-    private readonly windowsService: WindowsService,
+    private readonly windowsService: WindowsService
   ) {}
 
   ngAfterViewInit(): void {
     this.loadWindowContentWithDelay(0, this.openedWindows[0].component);
-    this.windowsService.openedEvent
-      .subscribe((data: MenuItem) => {
-        this.openMenuItem(data);
-      });
+    this.windowsService.openedEvent.subscribe((data: MenuItem) => {
+      this.openMenuItem(data);
+    });
   }
 
   openMenuItem(item: MenuItem): void {
@@ -86,17 +112,26 @@ export class AppComponent implements AfterViewInit {
       window.open(item.goTo, '_blank');
       return;
     }
-    this.openComponent(item.goTo, item.icon + ' ' + item.name, item.isFullScreen);
+    this.openComponent(
+      item.goTo,
+      item.icon + ' ' + item.name,
+      item.isFullScreen,
+      item.isMidScreen
+    );
     this.startMenuOpened = false;
   }
 
-  openComponent(component: any, title: string, isFullScreen: boolean): void {
-    this.openedWindows = [...this.openedWindows, {
-      component,
-      zIndex: this.lastZIndex + 1,
-      title,
-      isFullScreen,
-    }];
+  openComponent(component: any, title: string, isFullScreen: boolean, isMidScreen: boolean): void {
+    this.openedWindows = [
+      ...this.openedWindows,
+      {
+        component,
+        zIndex: this.lastZIndex + 1,
+        title,
+        isFullScreen,
+        isMidScreen
+      },
+    ];
     this.lastZIndex += 1;
     this.lastWindowOpened = this.openedWindows.length - 1;
     this.loadWindowContentWithDelay(this.openedWindows.length - 1, component);
@@ -120,7 +155,9 @@ export class AppComponent implements AfterViewInit {
 
   private loadWindowContent(index: number, component: any): void {
     const target = this.windowTargets.toArray()[index];
-    const widgetComponent = this.componentFactoryResolver.resolveComponentFactory(component);
+    const widgetComponent = this.componentFactoryResolver.resolveComponentFactory(
+      component
+    );
     const ref = target.createComponent(widgetComponent);
     ref.changeDetectorRef.detectChanges();
   }

@@ -66,6 +66,12 @@
     height: calc(100vh - 38px);
 }
 
+.mid-window {
+    min-width: 900px;
+    max-width: 900px !important;
+    height: 440px;
+}
+
 .btn-close {
     position: absolute;
     right: 0;
