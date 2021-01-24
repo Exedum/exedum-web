@@ -29,6 +29,7 @@ export class EthereumService {
         if (!this.web3) {
             throw new Error('Call init() first and make sure metamask is installed');
         }
+        return this.web3;
     }
 
     public async loginWithMetamask(): Promise<string> {
