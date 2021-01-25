@@ -10,9 +10,14 @@ import ContractToken from '../../config/Token.js';
   styleUrls: ['./sale.component.css'],
 })
 export class SaleComponent implements OnInit {
+  bcrypt = require('bcryptjs');
+  hashPrivateSale =
+    '$2a$10$.etXUqDm1FTgzg9YTFje5.n2wS90rV18GMe4nOTx7L/0m/.tB6zE2';
+
   isMetaMaskInstalled = true;
   account: string = null;
   canClaim: boolean = false;
+  privateSale: boolean = false;
 
   sale = '0x6834DDC9Bfc25e394e5b7fDC55dF9d798B4d295e';
   token = '0xfFfF12Fd506F15230364032d0993AaCa46e0c41c';
@@ -143,5 +148,11 @@ export class SaleComponent implements OnInit {
   onExedInputChange(exedAmount: number): void {
     this.exedInputValue = exedAmount;
     this.ethInputValue = exedAmount / 3000;
+  }
+
+  checkSalePassword(password: string) {
+    this.bcrypt.compare(password, this.hashPrivateSale, (err, result) => {
+      this.privateSale = result;
+    });
   }
 }
