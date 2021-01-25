@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { EthereumService } from '../ethereum.service';
 
 import ContractPrivateSale from '../../config/PrivateSale.js';
@@ -29,7 +29,10 @@ export class SaleComponent implements OnInit {
   ethInputValue = 0;
   exedInputValue = 0;
 
-  constructor(private readonly eth: EthereumService) {}
+  constructor(
+    private readonly eth: EthereumService,
+    private readonly cd: ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
     this.initEth();
@@ -153,6 +156,7 @@ export class SaleComponent implements OnInit {
   checkSalePassword(password: string) {
     this.bcrypt.compare(password, this.hashPrivateSale, (err, result) => {
       this.privateSale = result;
+      this.cd.detectChanges();
     });
   }
 }
