@@ -18,8 +18,8 @@ export class SaleComponent implements OnInit {
   canClaim: boolean = false;
   saleAccessGranted: boolean = false;
 
-  sale = '0x4d7c10c770e25789b5e861ad7e2897ab8a24a9fb';
-  token = '0xeb00131f8Ba63922d63C9F22Ff49acaC6BC56456';
+  sale = '0x1125835085168B56dF42aEB33DE501d3De86e05D';
+  token = '0x9baf5147505b980b2674aab556a51e03b3082efe';
 
   ethBalance = '0';
   exedBalance = '0';
