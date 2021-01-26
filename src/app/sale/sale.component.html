@@ -19,14 +19,17 @@
       <div *ngIf="isMetaMaskInstalled && account">
         <p>Wallet Connected: {{ account }}</p>
       </div>
-      <p>Sale Address: {{ sale }}</p>
-      <p>Token Address: {{ token }}</p>
-      <p *ngIf="canClaim">1 ETH = 3000 EXED</p>
-      <p *ngIf="canClaim">(Min: 0.1 ETH - Max: 10 ETH)</p>
+      <p *ngIf="saleAccessGranted && !canClaim">Sale Address: {{ sale }}</p>
+      <p *ngIf="saleAccessGranted && !canClaim">Token Address: {{ token }}</p>
+      <p *ngIf="saleAccessGranted && !canClaim">1 ETH = 3000 EXED</p>
+      <p *ngIf="saleAccessGranted && !canClaim">(Min: 0.1 ETH - Max: 10 ETH)</p>
     </div>
 
-    <div class="col-lg-12" *ngIf="!privateSale">
-      <div *ngIf="!canClaim" class="row center">
+    <div
+      class="col-lg-12"
+      *ngIf="!saleAccessGranted && !canClaim && isMetaMaskInstalled && account"
+    >
+      <div class="row center">
         <div class="col-lg-12">
           <h6>Private Sale Password</h6>
           <div class="form-group">
@@ -42,18 +45,18 @@
           </div>
         </div>
       </div>
+    </div>
 
-      <div *ngIf="canClaim" class="col-lg-12">
-        <p>You have {{ unclaimedExedum }} EXED pending to be claimed</p>
-        <div class="row justify-content-center">
-          <button (click)="claimAll()" class="btn mr-2 mb-2 btn-secondary">
-            <span class="btn-text">Claim all my EXED tokens</span>
-          </button>
-        </div>
+    <div *ngIf="canClaim" class="col-lg-12">
+      <p>You have {{ unclaimedExedum }} EXED pending to be claimed</p>
+      <div class="row justify-content-center">
+        <button (click)="claimAll()" class="btn mr-2 mb-2 btn-secondary">
+          <span class="btn-text">Claim all my EXED tokens</span>
+        </button>
       </div>
     </div>
 
-    <div class="col-lg-12" *ngIf="privateSale">
+    <div class="col-lg-12" *ngIf="saleAccessGranted && !canClaim">
       <div *ngIf="!canClaim" class="col-lg-12">
         <div class="form-group">
           <label for="eth" class="mb-2"

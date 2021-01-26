@@ -1,8 +1,7 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { EthereumService } from '../ethereum.service';
-
 import ContractPrivateSale from '../../config/PrivateSale.js';
 import ContractToken from '../../config/Token.js';
+import { EthereumService } from '../ethereum.service';
 
 @Component({
   selector: 'app-sale',
@@ -17,10 +16,10 @@ export class SaleComponent implements OnInit {
   isMetaMaskInstalled = true;
   account: string = null;
   canClaim: boolean = false;
-  privateSale: boolean = false;
+  saleAccessGranted: boolean = false;
 
-  sale = '0x6834DDC9Bfc25e394e5b7fDC55dF9d798B4d295e';
-  token = '0xfFfF12Fd506F15230364032d0993AaCa46e0c41c';
+  sale = '0x4d7c10c770e25789b5e861ad7e2897ab8a24a9fb';
+  token = '0xeb00131f8Ba63922d63C9F22Ff49acaC6BC56456';
 
   ethBalance = '0';
   exedBalance = '0';
@@ -155,7 +154,7 @@ export class SaleComponent implements OnInit {
 
   checkSalePassword(password: string) {
     this.bcrypt.compare(password, this.hashPrivateSale, (err, result) => {
-      this.privateSale = result;
+      this.saleAccessGranted = result;
       this.cd.detectChanges();
     });
   }
