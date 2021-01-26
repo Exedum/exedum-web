@@ -47,7 +47,7 @@
       </div>
     </div>
 
-    <div *ngIf="canClaim" class="col-lg-12">
+    <div *ngIf="canClaim && isMetaMaskInstalled && account" class="col-lg-12">
       <p>You have {{ unclaimedExedum }} EXED pending to be claimed</p>
       <div class="row justify-content-center">
         <button (click)="claimAll()" class="btn mr-2 mb-2 btn-secondary">
