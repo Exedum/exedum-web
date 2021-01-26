@@ -89,6 +89,7 @@ export class AppComponent implements AfterViewInit {
       title: '📕 Welcome',
       isFullScreen: false,
       isMidScreen: false,
+      margin: undefined,
     },
   ];
 
@@ -105,9 +106,13 @@ export class AppComponent implements AfterViewInit {
     this.windowsService.openedEvent.subscribe((data: MenuItem) => {
       this.openMenuItem(data);
     });
+
+    setTimeout(() => {
+      this.openMenuItem(this.menu[2], 100);
+    }, 500);
   }
 
-  openMenuItem(item: MenuItem): void {
+  openMenuItem(item: MenuItem, margin?: number): void {
     if (typeof item.goTo === 'string') {
       window.open(item.goTo, '_blank');
       return;
@@ -116,12 +121,13 @@ export class AppComponent implements AfterViewInit {
       item.goTo,
       item.icon + ' ' + item.name,
       item.isFullScreen,
-      item.isMidScreen
+      item.isMidScreen,
+      margin
     );
     this.startMenuOpened = false;
   }
 
-  openComponent(component: any, title: string, isFullScreen: boolean, isMidScreen: boolean): void {
+  openComponent(component: any, title: string, isFullScreen: boolean, isMidScreen: boolean, margin?: number): void {
     this.openedWindows = [
       ...this.openedWindows,
       {
@@ -129,7 +135,8 @@ export class AppComponent implements AfterViewInit {
         zIndex: this.lastZIndex + 1,
         title,
         isFullScreen,
-        isMidScreen
+        isMidScreen,
+        margin,
       },
     ];
     this.lastZIndex += 1;
