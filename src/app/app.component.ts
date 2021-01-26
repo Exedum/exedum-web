@@ -34,7 +34,7 @@ export class AppComponent implements AfterViewInit {
       name: 'Protocol',
       goTo: ProtocolComponent,
       isFullScreen: false,
-      isMidScreen: false,
+      isMidScreen: true,
     },
     {
       icon: '📡',

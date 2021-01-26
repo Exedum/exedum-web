@@ -34,7 +34,7 @@ export class WelcomeComponent implements OnInit {
       name: 'Protocol',
       goTo: ProtocolComponent,
       isFullScreen: false,
-      isMidScreen: false
+      isMidScreen: true
     });
   }
 
