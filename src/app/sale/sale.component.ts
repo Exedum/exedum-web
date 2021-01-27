@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import ContractPrivateSale from '../../config/PrivateSale.js';
+import ContractSale from '../../config/Sale.js';
 import ContractToken from '../../config/Token.js';
 import { EthereumService } from '../ethereum.service';
 
@@ -8,18 +9,20 @@ import { EthereumService } from '../ethereum.service';
   templateUrl: './sale.component.html',
   styleUrls: ['./sale.component.css'],
 })
-
 export class SaleComponent implements OnInit {
   isMetaMaskInstalled = true;
   account: string = null;
   canClaim: boolean = false;
+  canPrivateClaim: boolean = false;
 
   sale = '0x6f5bf7470af262089e7f8aeab3fe60fe89d49635';
+  privateSale = '0x1125835085168B56dF42aEB33DE501d3De86e05D';
   token = '0x9baf5147505b980b2674aab556a51e03b3082efe';
 
   ethBalance = '0';
   exedBalance = '0';
-  unclaimedExedum = '0';
+  unclaimedSale = '0';
+  unclaimedPrivateSale = '0';
 
   ethInputValue = 0;
   exedInputValue = 0;
@@ -45,8 +48,13 @@ export class SaleComponent implements OnInit {
     );
 
     const saleInstance = new (this.eth.getWeb3().eth.Contract)(
-      ContractPrivateSale.abi,
+      ContractSale.abi,
       this.sale
+    );
+
+    const privateSaleInstance = new (this.eth.getWeb3().eth.Contract)(
+      ContractPrivateSale.abi,
+      this.privateSale
     );
 
     this.eth
@@ -58,7 +66,7 @@ export class SaleComponent implements OnInit {
             .getClaimableTokens(accounts[0])
             .call()
             .then((data) => {
-              this.unclaimedExedum = this.eth
+              this.unclaimedSale = this.eth
                 .getWeb3()
                 .utils.fromWei(data, 'ether');
             });
@@ -69,7 +77,30 @@ export class SaleComponent implements OnInit {
       .canClaim()
       .call()
       .then((data) => {
-        this.canClaim = data;
+        this.canClaim = true;
+      });
+
+    this.eth
+      .getWeb3()
+      .eth.getAccounts()
+      .then((accounts) => {
+        if (accounts && accounts.length > 0) {
+          privateSaleInstance.methods
+            .getClaimableTokens(accounts[0])
+            .call()
+            .then((data) => {
+              this.unclaimedPrivateSale = this.eth
+                .getWeb3()
+                .utils.fromWei(data, 'ether');
+            });
+        }
+      });
+
+    privateSaleInstance.methods
+      .canClaim()
+      .call()
+      .then((data) => {
+        this.canPrivateClaim = true;
       });
 
     this.eth
@@ -89,7 +120,8 @@ export class SaleComponent implements OnInit {
                 .then((data) => {
                   this.exedBalance = (
                     parseInt(this.eth.getWeb3().utils.fromWei(data, 'ether')) +
-                    parseInt(this.unclaimedExedum)
+                    parseInt(this.unclaimedSale) +
+                    parseInt(this.unclaimedPrivateSale)
                   ).toString();
                 });
             });
@@ -114,9 +146,9 @@ export class SaleComponent implements OnInit {
       });
   }
 
-  claimAll() {
+  claimSaleAll() {
     const saleInstance = new (this.eth.getWeb3().eth.Contract)(
-      ContractPrivateSale.abi,
+      ContractSale.abi,
       this.sale
     );
 
@@ -129,7 +161,28 @@ export class SaleComponent implements OnInit {
             .claim()
             .send({ from: accounts[0] })
             .then((data) => {
-              this.unclaimedExedum = '0';
+              this.unclaimedSale = '0';
+            });
+        }
+      });
+  }
+
+  claimPrivateSaleAll() {
+    const privateSaleInstance = new (this.eth.getWeb3().eth.Contract)(
+      ContractPrivateSale.abi,
+      this.privateSale
+    );
+
+    this.eth
+      .getWeb3()
+      .eth.getAccounts()
+      .then((accounts) => {
+        if (accounts && accounts.length > 0) {
+          privateSaleInstance.methods
+            .claim()
+            .send({ from: accounts[0] })
+            .then((data) => {
+              this.unclaimedPrivateSale = '0';
             });
         }
       });

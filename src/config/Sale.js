@@ -1,5 +1,5 @@
-const ContractPrivateSale = {
-  contractName: "ExedumPrivateSale",
+const ContractSale = {
+  contractName: "ExedumSale",
   abi: [
     {
       anonymous: false,
@@ -47,6 +47,13 @@ const ContractPrivateSale = {
     },
     {
       inputs: [],
+      name: "burnUnsold",
+      outputs: [],
+      stateMutability: "nonpayable",
+      type: "function",
+    },
+    {
+      inputs: [],
       name: "claim",
       outputs: [
         {
@@ -67,14 +74,44 @@ const ContractPrivateSale = {
     },
     {
       inputs: [],
-      name: "renounceOwnership",
+      name: "refund",
       outputs: [],
       stateMutability: "nonpayable",
       type: "function",
     },
     {
       inputs: [],
-      name: "returnUnsold",
+      name: "renounceOwnership",
+      outputs: [],
+      stateMutability: "nonpayable",
+      type: "function",
+    },
+    {
+      inputs: [
+        {
+          internalType: "uint256",
+          name: "_startTimestamp",
+          type: "uint256",
+        },
+        {
+          internalType: "uint256",
+          name: "_endTimestamp",
+          type: "uint256",
+        },
+        {
+          internalType: "address payable",
+          name: "_fundingAddress",
+          type: "address",
+        },
+      ],
+      name: "start",
+      outputs: [],
+      stateMutability: "nonpayable",
+      type: "function",
+    },
+    {
+      inputs: [],
+      name: "stop",
       outputs: [],
       stateMutability: "nonpayable",
       type: "function",
@@ -99,13 +136,21 @@ const ContractPrivateSale = {
     {
       inputs: [
         {
-          internalType: "contract IERC20",
-          name: "_token",
-          type: "address",
+          internalType: "uint256",
+          name: "_amount",
+          type: "uint256",
         },
+      ],
+      name: "withdraw",
+      outputs: [],
+      stateMutability: "nonpayable",
+      type: "function",
+    },
+    {
+      inputs: [
         {
-          internalType: "address payable",
-          name: "_fundingAddress",
+          internalType: "contract ERC20Burnable",
+          name: "_token",
           type: "address",
         },
       ],
@@ -204,6 +249,19 @@ const ContractPrivateSale = {
     },
     {
       inputs: [],
+      name: "isFailed",
+      outputs: [
+        {
+          internalType: "bool",
+          name: "",
+          type: "bool",
+        },
+      ],
+      stateMutability: "view",
+      type: "function",
+    },
+    {
+      inputs: [],
       name: "isSuccessful",
       outputs: [
         {
@@ -257,4 +315,4 @@ const ContractPrivateSale = {
   ],
 };
 
-module.exports = ContractPrivateSale;
+module.exports = ContractSale;

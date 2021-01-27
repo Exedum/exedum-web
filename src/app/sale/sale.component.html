@@ -1,6 +1,9 @@
 <div class="container">
   <div class="row align-items-center justify-content-center">
-    <h6>Buy EXED</h6>
+    <h6 *ngIf="!isMetaMaskInstalled">Warning!</h6>
+    <h6 *ngIf="isMetaMaskInstalled && !account">Login With Metamask To Continue</h6>
+    <h6 *ngIf="!canClaim && !canPrivateClaim && account && isMetaMaskInstalled">Buy EXED</h6>
+    <h6 *ngIf="canClaim && canPrivateClaim && account && isMetaMaskInstalled">Claim EXED</h6>
   </div>
   <br />
 
@@ -40,11 +43,36 @@
       </p>
     </div>
 
-    <div *ngIf="canClaim && isMetaMaskInstalled && account" class="col-lg-12">
-      <p>You have {{ unclaimedExedum }} EXED pending to be claimed</p>
+    <div
+      *ngIf="canPrivateClaim && isMetaMaskInstalled && account"
+      class="col-lg-12"
+    >
+      <p>
+        You have {{ unclaimedPrivateSale }} EXED from the private sale pending
+        to be claimed
+      </p>
       <div class="row justify-content-center">
-        <button (click)="claimAll()" class="btn mr-2 mb-2 btn-secondary">
-          <span class="btn-text">Claim all my EXED tokens</span>
+        <button
+          (click)="claimPrivateSaleAll()"
+          class="btn mr-2 mb-2 btn-secondary"
+        >
+          <span class="btn-text"
+            >Claim all my EXED from private sale</span
+          >
+        </button>
+      </div>
+    </div>
+
+    <div *ngIf="canClaim && isMetaMaskInstalled && account" class="col-lg-12">
+      <p>
+        You have {{ unclaimedSale }} EXED from the public sale pending to be
+        claimed
+      </p>
+      <div class="row justify-content-center">
+        <button (click)="claimSaleAll()" class="btn mr-2 mb-2 btn-secondary">
+          <span class="btn-text"
+            >Claim all my EXED from public sale</span
+          >
         </button>
       </div>
     </div>
@@ -94,15 +122,6 @@
               <span class="btn-text">Buy</span>
             </button>
           </div>
-        </div>
-      </div>
-
-      <div *ngIf="canClaim" class="col-lg-12">
-        <p>You have {{ unclaimedExedum }} EXED pending to be claimed</p>
-        <div class="row justify-content-center">
-          <button (click)="claimAll()" class="btn mr-2 mb-2 btn-secondary">
-            <span class="btn-text">Claim all my EXED tokens</span>
-          </button>
         </div>
       </div>
     </div>
