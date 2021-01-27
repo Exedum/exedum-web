@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import ContractPrivateSale from '../../config/PrivateSale.js';
 import ContractToken from '../../config/Token.js';
 import { EthereumService } from '../ethereum.service';
@@ -9,14 +9,9 @@ import { EthereumService } from '../ethereum.service';
   styleUrls: ['./sale.component.css'],
 })
 export class SaleComponent implements OnInit {
-  bcrypt = require('bcryptjs');
-  hashPrivateSale =
-    '$2a$10$.etXUqDm1FTgzg9YTFje5.n2wS90rV18GMe4nOTx7L/0m/.tB6zE2';
-
   isMetaMaskInstalled = true;
   account: string = null;
   canClaim: boolean = false;
-  saleAccessGranted: boolean = false;
 
   sale = '0x1125835085168B56dF42aEB33DE501d3De86e05D';
   token = '0x9baf5147505b980b2674aab556a51e03b3082efe';
@@ -28,10 +23,7 @@ export class SaleComponent implements OnInit {
   ethInputValue = 0;
   exedInputValue = 0;
 
-  constructor(
-    private readonly eth: EthereumService,
-    private readonly cd: ChangeDetectorRef
-  ) {}
+  constructor(private readonly eth: EthereumService) {}
 
   ngOnInit(): void {
     this.initEth();
@@ -144,18 +136,11 @@ export class SaleComponent implements OnInit {
 
   onEthInputChange(ethAmount: number): void {
     this.ethInputValue = ethAmount;
-    this.exedInputValue = ethAmount * 3000;
+    this.exedInputValue = ethAmount * 2000;
   }
 
   onExedInputChange(exedAmount: number): void {
     this.exedInputValue = exedAmount;
-    this.ethInputValue = exedAmount / 3000;
-  }
-
-  checkSalePassword(password: string) {
-    this.bcrypt.compare(password, this.hashPrivateSale, (err, result) => {
-      this.saleAccessGranted = result;
-      this.cd.detectChanges();
-    });
+    this.ethInputValue = exedAmount / 2000;
   }
 }
