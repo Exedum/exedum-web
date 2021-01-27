@@ -5,11 +5,11 @@
   <br />
 
   <div class="row center">
-    <div class="col-lg-6" *ngIf="!isMetaMaskInstalled">
+    <div class="col-lg-12" *ngIf="!isMetaMaskInstalled">
       <span class="text-danger mb-0">Metamask is not installed!</span>
     </div>
 
-    <div class="col-lg-6" *ngIf="isMetaMaskInstalled && !account">
+    <div class="col-lg-12" *ngIf="isMetaMaskInstalled && !account">
       <button class="btn mr-2 mb-2 btn-primary" (click)="login()">
         <span class="btn-text">Connect with metamask</span>
       </button>
