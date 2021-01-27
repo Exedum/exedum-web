@@ -5,26 +5,39 @@
   <br />
 
   <div class="row center">
-    <div class="col-lg-12" *ngIf="!isMetaMaskInstalled">
+    <div class="col-lg-6" *ngIf="!isMetaMaskInstalled">
       <span class="text-danger mb-0">Metamask is not installed!</span>
     </div>
 
-    <div class="col-lg-12" *ngIf="isMetaMaskInstalled && !account">
+    <div class="col-lg-6" *ngIf="isMetaMaskInstalled && !account">
       <button class="btn mr-2 mb-2 btn-primary" (click)="login()">
         <span class="btn-text">Connect with metamask</span>
       </button>
     </div>
 
-    <div class="col-lg-12">
+    <div class="col-lg-6">
       <div *ngIf="isMetaMaskInstalled && account">
-        <p>Wallet Connected: {{ account }}</p>
+        <p>
+          Wallet Connected: <br />
+          {{ account }}
+        </p>
       </div>
-      <p *ngIf="!canClaim">Sale Address: {{ sale }}</p>
-      <p *ngIf="!canClaim">Token Address: {{ token }}</p>
-      <p *ngIf="!canClaim">Start Date: 27/01/2021 17:00 GMT</p>
-      <p *ngIf="!canClaim">End Date: 10/02/2021 17:00 GMT</p>
-      <p *ngIf="!canClaim">(Min: 0.1 ETH - Max: 20 ETH per Wallet)</p>
-      <p *ngIf="!canClaim">1 ETH = 2000 EXED</p>
+      <p *ngIf="!canClaim && account">
+        Sale Address: <br />
+        {{ sale }}
+      </p>
+      <p *ngIf="!canClaim && account">
+        Token Address: <br />
+        {{ token }}
+      </p>
+      <p *ngIf="!canClaim && account">
+        Public Sale Date:<br />
+        27/01/2021 18:00 UTC - 03/02/2021 18:00 UTC
+      </p>
+      <p *ngIf="!canClaim && account">
+        Caps:<br />
+        SoftCap: 100 ETH - HardCap: 400 ETH
+      </p>
     </div>
 
     <div *ngIf="canClaim && isMetaMaskInstalled && account" class="col-lg-12">
@@ -36,7 +49,14 @@
       </div>
     </div>
 
-    <div class="col-lg-12" *ngIf="!canClaim">
+    <div class="col-lg-6" *ngIf="!canClaim && account">
+      <div class="col-lg-12">
+        <p *ngIf="!canClaim && account">
+          (Min: 0.1 ETH - Max: 20 ETH per Wallet)
+        </p>
+        <p *ngIf="!canClaim && account">1 ETH = 2000 EXED</p>
+      </div>
+
       <div *ngIf="!canClaim" class="col-lg-12">
         <div class="form-group">
           <label for="eth" class="mb-2"
@@ -69,9 +89,11 @@
           />
         </div>
         <div class="row justify-content-center">
-          <button (click)="buy()" class="btn mr-2 mb-2 btn-secondary">
-            <span class="btn-text">Buy</span>
-          </button>
+          <div class="col-lg-6">
+            <button (click)="buy()" class="btn mr-2 mb-2 btn-secondary">
+              <span class="btn-text">Buy</span>
+            </button>
+          </div>
         </div>
       </div>
 

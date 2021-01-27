@@ -8,12 +8,13 @@ import { EthereumService } from '../ethereum.service';
   templateUrl: './sale.component.html',
   styleUrls: ['./sale.component.css'],
 })
+
 export class SaleComponent implements OnInit {
   isMetaMaskInstalled = true;
   account: string = null;
   canClaim: boolean = false;
 
-  sale = '0x1125835085168B56dF42aEB33DE501d3De86e05D';
+  sale = '0x6f5bf7470af262089e7f8aeab3fe60fe89d49635';
   token = '0x9baf5147505b980b2674aab556a51e03b3082efe';
 
   ethBalance = '0';

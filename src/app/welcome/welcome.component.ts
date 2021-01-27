@@ -25,7 +25,7 @@ export class WelcomeComponent implements OnInit {
       name: 'Sale',
       goTo: SaleComponent,
       isFullScreen: false,
-      isMidScreen: false
+      isMidScreen: true
     });
   }
   openProtocol(): void {

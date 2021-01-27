@@ -41,7 +41,7 @@ export class AppComponent implements AfterViewInit {
       name: 'Sale',
       goTo: SaleComponent,
       isFullScreen: false,
-      isMidScreen: false,
+      isMidScreen: true,
     },
     {
       icon: '🚀',
