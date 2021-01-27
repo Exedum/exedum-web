@@ -77,7 +77,7 @@ export class SaleComponent implements OnInit {
       .canClaim()
       .call()
       .then((data) => {
-        this.canClaim = true;
+        this.canClaim = data;
       });
 
     this.eth
@@ -100,7 +100,7 @@ export class SaleComponent implements OnInit {
       .canClaim()
       .call()
       .then((data) => {
-        this.canPrivateClaim = true;
+        this.canPrivateClaim = data;
       });
 
     this.eth
