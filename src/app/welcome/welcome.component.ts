@@ -42,7 +42,7 @@ export class WelcomeComponent implements OnInit {
     this.windowsService.openMenuItem({
       icon: '🚀',
       name: 'App',
-      goTo: ComingsoonComponent,
+      goTo: FrameComponent,
       isFullScreen: true,
       isMidScreen: false
     });

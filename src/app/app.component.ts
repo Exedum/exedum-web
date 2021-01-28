@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { ComingsoonComponent } from './comingsoon/comingsoon.component';
 import { DistributionComponent } from './distribution/distribution.component';
+import { FrameComponent } from './frame/frame.component';
 import { MenuItem } from './menu.item';
 import { ProtocolComponent } from './protocol/protocol.component';
 import { RoadmapComponent } from './roadmap/roadmap.component';
@@ -46,7 +47,7 @@ export class AppComponent implements AfterViewInit {
     {
       icon: '🚀',
       name: 'App',
-      goTo: ComingsoonComponent,
+      goTo: FrameComponent,
       isFullScreen: true,
       isMidScreen: false,
     },
