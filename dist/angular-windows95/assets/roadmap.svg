@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 365.2 373.4" style="enable-background:new 0 0 365.2 373.4;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#AA0000;}
+	.st1{fill:#890606;}
+	.st2{fill:#38B6FF;}
+	.st3{fill:#0483AA;}
+	.st4{fill:#5F28A6;}
+	.st5{fill:#370C89;}
+	.st6{fill:#B3995D;}
+	.st7{fill:#8E7035;}
+	.st8{fill:none;}
+	.st9{fill:#FFFFFF;stroke:#FFFFFF;stroke-width:0.5;stroke-miterlimit:10;}
+	.st10{font-family:'Gotham-Light';}
+	.st11{font-size:13.4131px;}
+	.st12{fill:#FFFFFF;}
+	.st13{font-family:'Gotham-Black';}
+	.st14{font-size:44.7104px;}
+</style>
+<g>
+	<g>
+		<polygon class="st0" points="343.2,178.1 204.8,178.1 66.4,178.1 66.4,145.8 66.4,113.6 204.8,113.6 343.2,113.6 365.2,145.8 		
+			"/>
+	</g>
+	<polygon class="st1" points="88.9,162.2 66.4,178.1 66.3,161.6 84.3,159.9 	"/>
+	<g>
+		<polygon class="st2" points="343.2,275.7 204.8,275.7 66.4,275.7 66.4,243.5 66.4,211.2 204.8,211.2 343.2,211.2 365.2,243.5 		
+			"/>
+	</g>
+	<polygon class="st3" points="88.9,259.8 66.4,275.7 66.3,259.2 84.3,257.5 	"/>
+	<g>
+		<polygon class="st4" points="343.2,373.4 204.8,373.4 66.4,373.4 66.4,341.1 66.4,308.8 204.8,308.8 343.2,308.8 365.2,341.1 		
+			"/>
+	</g>
+	<polygon class="st5" points="88.9,357.4 66.4,373.4 66.3,356.9 84.3,355.1 	"/>
+	<g>
+		<polygon class="st6" points="343.2,80.5 204.8,80.5 66.4,80.5 66.4,48.2 66.4,15.9 204.8,15.9 343.2,15.9 365.2,48.2 		"/>
+	</g>
+	<polygon class="st7" points="88.9,64.6 66.4,80.5 66.3,64 84.3,62.3 	"/>
+	<rect class="st6" width="88.9" height="64.6"/>
+	<rect y="97.6" class="st0" width="88.9" height="64.6"/>
+	<rect y="195.2" class="st2" width="88.9" height="64.6"/>
+	<rect y="292.9" class="st4" width="88.9" height="64.6"/>
+</g>
+<rect x="117.1" y="25.1" class="st8" width="182.3" height="59.5"/>
+<text transform="matrix(1 0 0 1 117.1154 34.8584)"><tspan x="0" y="0" class="st9 st10 st11">UNISWAP listing</tspan><tspan x="0" y="16.8" class="st9 st10 st11">third party audit</tspan><tspan x="0" y="33.5" class="st9 st10 st11">Strategic partnerships</tspan></text>
+<rect x="117.1" y="123.3" class="st8" width="214.5" height="59.5"/>
+<text transform="matrix(1 0 0 1 117.1154 133.0762)"><tspan x="0" y="0" class="st9 st10 st11">CEX partnership</tspan><tspan x="0" y="16.8" class="st9 st10 st11">Offchain governance with 0 fees</tspan><tspan x="0" y="33.5" class="st9 st10 st11">Burn supply</tspan></text>
+<rect x="117.1" y="221.9" class="st8" width="214.5" height="59.5"/>
+<text transform="matrix(1 0 0 1 117.1154 231.7041)"><tspan x="0" y="0" class="st9 st10 st11">BETA Mainnet Polkadot</tspan><tspan x="0" y="16.8" class="st9 st10 st11">Marketing funding</tspan><tspan x="0" y="33.5" class="st9 st10 st11">New features</tspan></text>
+<rect x="117.1" y="326.7" class="st8" width="214.5" height="59.5"/>
+<text transform="matrix(1 0 0 1 117.1154 336.4727)"><tspan x="0" y="0" class="st9 st10 st11">Polkadot mainnet launch</tspan><tspan x="0" y="16.8" class="st9 st10 st11">and DEXEDUM launch</tspan></text>
+<g>
+	<rect x="10.6" y="15.4" class="st8" width="74.3" height="41.8"/>
+	<text transform="matrix(1 0 0 1 10.6119 48.061)" class="st12 st13 st14">01</text>
+</g>
+<g>
+	<rect x="10.6" y="113.1" class="st8" width="74.3" height="41.8"/>
+	<text transform="matrix(1 0 0 1 10.6119 145.7568)" class="st12 st13 st14">02</text>
+</g>
+<g>
+	<rect x="10.6" y="210.5" class="st8" width="74.3" height="41.8"/>
+	<text transform="matrix(1 0 0 1 10.6119 243.0957)" class="st12 st13 st14">03</text>
+</g>
+<g>
+	<rect x="10.6" y="306.8" class="st8" width="74.3" height="41.8"/>
+	<text transform="matrix(1 0 0 1 10.6119 339.417)" class="st12 st13 st14">04</text>
+</g>
+</svg>
