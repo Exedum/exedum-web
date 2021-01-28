@@ -13,6 +13,7 @@ import { ComingsoonComponent } from './comingsoon/comingsoon.component';
 import { EthereumService } from './ethereum.service';
 import { RoadmapComponent } from './roadmap/roadmap.component';
 import { DistributionComponent } from './distribution/distribution.component';
+import { FaqComponent } from './faq/faq.component';
 
 @NgModule({
   declarations: [		
@@ -25,7 +26,8 @@ import { DistributionComponent } from './distribution/distribution.component';
     FrameComponent,
     ComingsoonComponent,
       RoadmapComponent,
-      DistributionComponent
+      DistributionComponent,
+      FaqComponent
    ],
   imports: [
     BrowserModule,

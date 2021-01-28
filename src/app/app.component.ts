@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { ComingsoonComponent } from './comingsoon/comingsoon.component';
 import { DistributionComponent } from './distribution/distribution.component';
+import { FaqComponent } from './faq/faq.component';
 import { FrameComponent } from './frame/frame.component';
 import { MenuItem } from './menu.item';
 import { ProtocolComponent } from './protocol/protocol.component';
@@ -22,6 +23,15 @@ import { WindowsService } from './windows.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements AfterViewInit {
+
+  static appWindowData = {
+    icon: '🚀',
+    name: 'App',
+    goTo: FrameComponent,
+    isFullScreen: true,
+    isMidScreen: false,
+  };
+
   menu: MenuItem[] = [
     {
       icon: '📕',
@@ -38,19 +48,20 @@ export class AppComponent implements AfterViewInit {
       isMidScreen: true,
     },
     {
+      icon: '📜',
+      name: 'FAQs',
+      goTo: FaqComponent,
+      isFullScreen: false,
+      isMidScreen: true,
+    },
+    {
       icon: '📡',
       name: 'Sale',
       goTo: SaleComponent,
       isFullScreen: false,
       isMidScreen: true,
     },
-    {
-      icon: '🚀',
-      name: 'App',
-      goTo: FrameComponent,
-      isFullScreen: true,
-      isMidScreen: false,
-    },
+    AppComponent.appWindowData,
     {
       icon: '🍰',
       name: 'Distribution',
@@ -109,7 +120,7 @@ export class AppComponent implements AfterViewInit {
     });
 
     setTimeout(() => {
-      this.openMenuItem(this.menu[2], 100);
+      this.openMenuItem(this.menu[3], 100);
     }, 500);
   }
 

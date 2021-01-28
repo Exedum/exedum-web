@@ -1,0 +1,93 @@
+<div class="p-5 bg-secondary">
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link" (click)="activeTab = 0" [ngClass]="{'active': activeTab == 0}" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+                aria-selected="true">Epochs</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" (click)="activeTab = 1" [ngClass]="{'active': activeTab == 1}" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+                aria-selected="true">Pool</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" (click)="activeTab = 2" [ngClass]="{'active': activeTab == 2}" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+                aria-selected="false">Coupons</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" (click)="activeTab = 3" [ngClass]="{'active': activeTab == 3}" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
+                aria-selected="false">DAO</a>
+        </li>
+    </ul>
+
+    <div class="tab-content">
+        <div class="tab-pane" [ngClass]="{'show active': activeTab == 0}" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <p>In order to regulate the liquidity of the project both in the DAO and in Uniswap, 
+                the EXED protocol includes a system that protects the project from strong variations by limiting these types of movements. 
+                This system is measured in "epoch" where 1 epoch equals 24 hours.
+            </p>
+            <p>
+                When a user performs movements in the DAO, they will not be able to perform new movements until 15 epoch passes.
+                When a user makes movements in the Pool, they will not be able to make new movements until 5 epoch passes.
+                When a user redeems EXEDs for coupons, these coupons will only be valid for the next 90 epoch.
+            </p>
+            <p>
+                Every 24 hours any user can call the "advance" function to advance an epoch. This updates the value of the token on the platform and 
+                the user who calls the function is rewarded with 100 EXED.
+            </p>
+            <button (click)="openApp()" class="btn btn-sm mr-2 btn-primary" type="button">
+                <span class="btn-text">🚀 Open APP</span>
+            </button>
+        </div>
+        <div class="tab-pane" [ngClass]="{'show active': activeTab == 1}" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <p>
+            The pool rewards to all its participants when the EXED value is greater than 1.00 USDC on the UniSwap pair and also just for staking.
+            </p>
+            <p>
+            To be a participant in the pool, you must deposit the tokens received by UniSwap as a liquidity provider in the pair "EXED-USDC", hereinafter LP Token.
+            </p>
+            <p>
+            Once the user has the LP Token, he must access the "Pool" section of the app and stage this token and, finally, make the "bond" of these tokens.
+            </p>
+            <p>
+            Once these steps have been completed, you will begin to receive rewards each time a trade on uniswap happens or a user transfers EXED token to another and at each change of "epoch" as long as the value of the token is greater than 1.00 USDC.
+            </p>
+            <p>
+            To claim your rewards you must first carry out "unbound" of the LP Token and then carry out the "claim". At this time you will stop receiving rewards until you make the LP Token "bond" again.
+            </p>
+            <p>
+            With each change that the user makes interacting with the Pool, a 5 epoch movement block will be established.
+            </p>
+            <button (click)="openApp()" class="btn btn-sm mr-2 btn-primary" type="button">
+                <span class="btn-text">🚀 Open pool in APP</span>
+            </button>
+        </div>
+        <div class="tab-pane" [ngClass]="{'show active': activeTab == 2}" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <p>
+                When the protocol is in contraction (Price is under 1 USDC) you can buy coupons. 
+                You will pay less than 1 EXED to get a coupon redeemeable for 1 EXED.
+                To pay for it your burning your EXED.
+            </p>
+            <p>
+                Purchasing coupons can be very profitable. For example, if you buy 1 EXED Coupon for 0.75 EXED and then you redeem it for 1 EXED
+                every week, thats an APY of more than 1300%.
+            </p>
+            <p>
+                What’s the risk? All coupons expire after 90 epochs, so, if during that time we don't reach an expansion in the protocol 
+                you will lose your coupons.
+            </p>
+            <button (click)="openApp()" class="btn btn-sm mr-2 btn-primary" type="button">
+                <span class="btn-text">🚀 Open coupons in APP</span>
+            </button>
+        </div>
+        <div class="tab-pane" [ngClass]="{'show active': activeTab == 3}" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+            <p>
+                You can participate in the DAO by staging and bonding your EXED tokens. You will earn EXED when the protocol is in expansion (Price is more than 1 USDC).
+            </p>
+            <p>
+                Also you can vote in the governance to apply new propositions to improve the protocol.
+            </p>
+            <button (click)="openApp()" class="btn btn-sm mr-2 btn-primary" type="button">
+                <span class="btn-text">🚀 Open DAO in APP</span>
+            </button>
+        </div>
+    </div>
+</div>
