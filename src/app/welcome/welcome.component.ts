@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from '../app.component';
-import { ComingsoonComponent } from '../comingsoon/comingsoon.component';
-import { FrameComponent } from '../frame/frame.component';
+import { FaqComponent } from '../faq/faq.component';
 import { ProtocolComponent } from '../protocol/protocol.component';
-import { SaleComponent } from '../sale/sale.component';
 import { WindowsService } from '../windows.service';
 
 @Component({
@@ -20,15 +18,16 @@ export class WelcomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  openSale(): void {
+  openFAQ(): void {
     this.windowsService.openMenuItem({
-      icon: '📡',
-      name: 'Sale',
-      goTo: SaleComponent,
+      icon: '📜',
+      name: 'FAQs',
+      goTo: FaqComponent,
       isFullScreen: false,
-      isMidScreen: true
+      isMidScreen: true,
     });
   }
+
   openProtocol(): void {
     this.windowsService.openMenuItem({
       icon: '🎚',

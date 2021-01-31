@@ -56,7 +56,7 @@ export class AppComponent implements AfterViewInit {
     },
     {
       icon: '📡',
-      name: 'Sale',
+      name: 'Claim',
       goTo: SaleComponent,
       isFullScreen: false,
       isMidScreen: true,
@@ -118,10 +118,6 @@ export class AppComponent implements AfterViewInit {
     this.windowsService.openedEvent.subscribe((data: MenuItem) => {
       this.openMenuItem(data);
     });
-
-    setTimeout(() => {
-      this.openMenuItem(this.menu[3], 100);
-    }, 500);
   }
 
   openMenuItem(item: MenuItem, margin?: number): void {

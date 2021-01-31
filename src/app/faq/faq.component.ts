@@ -19,7 +19,6 @@ export class FaqComponent implements OnInit {
   }
 
   openApp(): void {
-    console.log('open');
     this.windowsService.openMenuItem(AppComponent.appWindowData);
   }
 

@@ -62,17 +62,28 @@
         </div>
         <div class="tab-pane" [ngClass]="{'show active': activeTab == 2}" id="profile" role="tabpanel" aria-labelledby="profile-tab">
             <p>
-                When the protocol is in contraction (Price is under 1 USDC) you can buy coupons. 
-                You will pay less than 1 EXED to get a coupon redeemeable for 1 EXED.
-                To pay for it your burning your EXED.
+                When the value of EXED is less than 1 USD, users can burn a certain amount of the EXED token, this reduce debt and you obtain 
+                coupons instead. This also reduces the amount of existing token and encourages its value to rise.
             </p>
             <p>
-                Purchasing coupons can be very profitable. For example, if you buy 1 EXED Coupon for 0.75 EXED and then you redeem it for 1 EXED
-                every week, thats an APY of more than 1300%.
+                To consider:
+                <br/>
+                - Depending on the value of the token and the debt premium at the time of purchase of the coupon, this will allow the user to 
+                recover a higher or lower number of EXED.
+                <br/>
+                - The coupons will be redeemable again for EXED token at the moment in which the value of EXED returns to 1 USD or higher.
+                <br/>
+                - The coupons are valid for 90 days, if they are not redeemed for EXED or the value of the token does not recover the value of 1 USD within this period, 
+                the coupons are automatically destroyed.
             </p>
             <p>
-                What’s the risk? All coupons expire after 90 epochs, so, if during that time we don't reach an expansion in the protocol 
-                you will lose your coupons.
+                Example:
+            </p>
+            <p>
+                Suppose a user who has 1000 EXED. The price of the token drops to 0.98 and begins to generate deductions until reaching a premium of 15%.
+                Then the user decides to burn his 1000 EXED for what he will receive 1150 coupons. If at any time during the next 90 days the price 
+                of EXED recovers the value of 1 USD or higher, the user will be able to exchange their coupons for 1150 EXED. If the value of the 
+                EXED in that time does not recover the value of 1 USD or if it does, but the user does not get to redeem his coupons within 90 days, he will lose his coupons.
             </p>
             <button (click)="openApp()" class="btn btn-sm mr-2 btn-primary" type="button">
                 <span class="btn-text">🚀 Open coupons in APP</span>
